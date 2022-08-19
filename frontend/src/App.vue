@@ -1,7 +1,16 @@
-<script setup lang="ts"></script>
-
 <template>
-  <h1>To-do list</h1>
+    <TodoList />
 </template>
 
-<style scoped lang="scss"></style>
+<script setup lang="ts">
+import TodoList from './components/todo/TodoList.vue';
+</script>
+
+<style lang="scss">
+#app {
+  width: 100%;
+  height: 100vh;
+
+  background-color: #222435;
+}
+</style>
