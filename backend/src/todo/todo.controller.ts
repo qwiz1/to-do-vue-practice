@@ -20,4 +20,9 @@ export class TodoController {
   async create(@Body() createTodoDto: CreateTodoDto): Promise<Todo> {
     return this.todoService.create(createTodoDto);
   }
+
+  @Get()
+  async getAll(): Promise<Todo[]> {
+    return this.todoService.getAll();
+  }
 }

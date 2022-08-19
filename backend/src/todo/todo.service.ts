@@ -11,7 +11,11 @@ export class TodoService {
   ) {}
 
   async create(createTodoDto: CreateTodoDto): Promise<Todo> {
-		const createdTodo = await this.todoModel.create(createTodoDto);
-		return createdTodo;
-	}
+    const createdTodo = await this.todoModel.create(createTodoDto);
+    return createdTodo;
+  }
+
+  async getAll(): Promise<Todo[]> {
+    return this.todoModel.find().exec();
+  }
 }
