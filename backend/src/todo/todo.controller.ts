@@ -33,4 +33,9 @@ export class TodoController {
   ): Promise<Todo> {
     return this.todoService.update(id, updateTodoDto);
   }
+
+  @Delete(':id')
+  async delete(@Param('id') id: string) {
+    return this.todoService.delete(id);
+  }
 }
