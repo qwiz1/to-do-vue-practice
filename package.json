@@ -1,0 +1,26 @@
+{
+  "name": "to-do",
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
+  },
+  "proxy": "http://localhost:3000/",
+  "scripts": {
+    "start:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && npm run start:dev",
+    "install:all": "npm install && install:frontend && install:backend",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "lint": "npm run lint:editorconfig && npm run lint:frontend && npm run lint:backend",
+    "lint:editorconfig": "editorconfig-checker",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:backend": "cd backend && npm run lint",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build"
+  },
+  "devDependencies": {
+    "editorconfig-checker": "^4.0.2",
+    "sass": "^1.54.4"
+  }
+}
