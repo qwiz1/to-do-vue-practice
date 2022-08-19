@@ -20,7 +20,6 @@
     "build:backend": "cd backend && npm run build"
   },
   "devDependencies": {
-    "editorconfig-checker": "^4.0.2",
-    "sass": "^1.54.4"
+    "editorconfig-checker": "^4.0.2"
   }
 }
