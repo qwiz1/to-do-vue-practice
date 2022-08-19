@@ -29,7 +29,7 @@ export class TodoService {
     existingTodo.updated_at = new Date();
     return existingTodo.save();
   }
-  
+
   async delete(id: string) {
     return this.todoModel.findByIdAndRemove(id).exec();
   }
