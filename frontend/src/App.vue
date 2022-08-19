@@ -10,7 +10,6 @@ import TodoList from './components/todo/TodoList.vue';
 #app {
   width: 100%;
   height: 100vh;
-
   background-color: #222435;
 }
 </style>
