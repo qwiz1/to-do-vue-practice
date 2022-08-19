@@ -25,4 +25,12 @@ export class TodoController {
   async getAll(): Promise<Todo[]> {
     return this.todoService.getAll();
   }
+
+  @Put(':id')
+  async update(
+    @Param('id') id: string,
+    @Body() updateTodoDto: UpdateTodoDto,
+  ): Promise<Todo> {
+    return this.todoService.update(id, updateTodoDto);
+  }
 }
