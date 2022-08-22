@@ -1,73 +1,137 @@
-
 <template>
-  <main>
-    <h1>To-do list</h1>
-    <form class="add-todo">
-      <input class="input-description">
-      <button class="btn-add">Add Todo</button>
-    </form>
-    <ul>
-      <li>
-        <div class="round">
-          <input type="checkbox" />
-        </div>
-        <input type="text" />
-        <button class="cross-stand-alone">
-          <fa icon="fa-xmark" />
+  <ul>
+    <li v-for="(todo, index) in props.todos" :key="todo._id">
+      <div class="task-wrapper" v-if="todo.done === filterIsDone">
+        <input
+          :id="index + '_task-checkbox'"
+          class="task-checkbox"
+          :class="{ checked: todo.done }"
+          type="checkbox"
+          v-model="todo.done"
+          @click="$emit('update', todo._id, { done: !todo.done })"
+        />
+        <label :for="index + '_task-checkbox'">
+          <fa-icons
+            color="#4EA2FF"
+            size="lg"
+            icon="fa-circle-check"
+            class="check-icon"
+            :class="{ checked: todo.done }"
+          />
+        </label>
+        <input
+          :disabled="todo.done"
+          @focusout="
+            $emit('update', todo._id, { description: todo.description })
+          "
+          type="text"
+          class="input-update"
+          :class="{ done: todo.done }"
+          v-model="todo.description"
+        />
+        <button @click="$emit('remove', todo._id)" class="remove-btn">
+          <fa-icons size="xl" icon="fa-xmark" />
         </button>
-      </li>
-    </ul>
-    <fa color="#4EA2FF" size="lg" icon="fa-circle-check" />
-  </main>
+      </div>
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts">
+import type { Todo } from '../common/types/todo.type';
+
+const props = defineProps<{
+  todos: Todo[];
+  filterIsDone: boolean;
+}>();
 </script>
 
 <style scoped lang="scss">
-main {
-  display: flex;
-  flex-direction: column;
+ul {
+  list-style: none;
 
-  max-width: 1080px;
-  max-height: 720px;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
+  li {
+    margin-bottom: 10px;
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    &:first-child {
+      margin-top: 20px;
+    }
 
-  form {
+    &:last-child {
+      margin-bottom: 20px;
+    }
+
+    .task-wrapper {
+      display: flex;
+      position: relative;
+    }
 
     input,
     button {
       border: none;
       outline: none;
+      background: none;
     }
 
-  }
+    .task-checkbox {
+      visibility: hidden;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 20px;
+      height: 20px;
+    }
 
-  ul {
-    list-style: none;
+    label {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #67697a;
+      border-radius: 50%;
+      cursor: pointer;
 
-    li {
-      display: flex;
+      .check-icon {
+        visibility: hidden;
 
-      input,
-      button {
-        border: none;
-        outline: none;
+        &.checked {
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          visibility: visible;
+        }
       }
+    }
+
+    .remove-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 20px;
+      height: 20px;
+      color: #9799ad;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+
+    .input-update {
+      background: #383a4c;
+      border-radius: 10px;
+      width: 100%;
+      height: 60px;
+      color: white;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 20px 20px 20px 60px;
+    }
+
+    .input-update.done {
+      text-decoration: line-through;
+      color: #9799ad;
     }
   }
 }
 </style>
-
-
-
-
-
-
