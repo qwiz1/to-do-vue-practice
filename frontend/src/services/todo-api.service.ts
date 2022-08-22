@@ -6,7 +6,7 @@ class TodoApi {
   apiUrl: string;
 
   constructor() {
-    this.apiUrl = 'http://localhost:3000/todo';
+    this.apiUrl = '/todo';
   }
 
   public async getAll(): Promise<Todo[]> {
