@@ -17,6 +17,7 @@ frontend/cypress/videos/
 frontend/cypress/screenshots/
 # OS
 .DS_Store
+.env
 
 # Tests
 coverage
