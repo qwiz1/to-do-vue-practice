@@ -8,8 +8,7 @@ import Todo from './components/todo/TodoMain.vue';
 
 <style lang="scss">
 #app {
-  width: 100%;
-  height: 100vh;
-  background-color: #222435;
+  height: 100%;
+  background: #222435;
 }
 </style>

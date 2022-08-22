@@ -46,8 +46,6 @@ main {
   flex-direction: column;
 
   max-width: 800px;
-  width: 100%;
-  height: 100vh;
   margin: 0 auto;
   padding: 106px 0 44px 0;
 
