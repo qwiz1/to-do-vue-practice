@@ -1,9 +1,9 @@
 <template>
-    <TodoList />
+  <Todo />
 </template>
 
 <script setup lang="ts">
-import TodoList from './components/todo/TodoList.vue';
+import Todo from './components/todo/TodoMain.vue';
 </script>
 
 <style lang="scss">
