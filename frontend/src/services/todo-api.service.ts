@@ -6,7 +6,7 @@ class TodoApi {
   apiUrl: string;
 
   constructor() {
-    this.apiUrl = '/todo';
+    this.apiUrl = 'https://andrii-todo-list.herokuapp.com/todo';
   }
 
   public async getAll(): Promise<Todo[]> {
