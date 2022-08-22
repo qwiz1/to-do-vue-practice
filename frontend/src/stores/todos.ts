@@ -30,12 +30,10 @@ export const useTodoStore = defineStore({
 
     async updateTodo(id: string, payload: UpdateTodo): Promise<void> {
       const updatedTodo = await todoApi.update(id, payload);
-      console.log(updatedTodo);
     },
 
     async removeTodoById(id: string): Promise<void> {
       const deletedTodo = await todoApi.delete(id);
-      console.log(deletedTodo);
       this.todos = this.todos.filter((t) => t._id !== deletedTodo._id);
     },
   },
