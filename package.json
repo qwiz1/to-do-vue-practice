@@ -20,7 +20,7 @@
     "build:backend": "cd backend && npm run build",
     "start": "cd backend/dist && npm run start",
     "heroku-prebuild": "npm run install:all",
-    "heroku-postbuild": "npm run build && npm run move:deploy"
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
     "editorconfig-checker": "^4.0.2"
