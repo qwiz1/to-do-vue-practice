@@ -24,7 +24,7 @@ export const useTodoStore = defineStore({
         done: false,
       });
 
-      this.todos.push(newTodo);
+      this.todos.unshift(newTodo);
       this.newDescription = '';
     },
 
