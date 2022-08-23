@@ -17,7 +17,7 @@ export class TodoService {
   }
 
   async getAll(): Promise<Todo[]> {
-    return this.todoModel.find().exec();
+    return this.todoModel.find().sort({createdAt: -1}).exec();
   }
 
   async update(id: string, updateTodoDto: UpdateTodoDto): Promise<Todo> {
@@ -28,7 +28,6 @@ export class TodoService {
     existingTodo.description =
       updateTodoDto.description ?? existingTodo.description;
     existingTodo.done = updateTodoDto.done ?? existingTodo.done;
-    existingTodo.updated_at = new Date();
     return existingTodo.save();
   }
 
